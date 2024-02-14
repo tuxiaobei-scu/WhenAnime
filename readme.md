@@ -2,9 +2,9 @@
 
 ## 简介
 
-动画场景搜索引擎，追溯动漫截图的出现时刻，并可提供预览动图。
+以图搜番，动画场景搜索引擎，基于对比学习训练动漫特征提取模型，构建自己的动漫索引库，追溯动漫截图的出现时刻，并可提供预览动图。
 
-本项目使用 Python 开发，基于 PyTorch，前端使用 Gradio 构建，你可以将此项目部署于在线机器学习托管平台，而不需占用自己服务器的性能，如魔搭 ModelScope，Huggingface 等平台。你可以在[此链接](https://modelscope.cn/studios/tuxiaobei/Search_Anime_For_XYY_S19_to_S28)尝试本项目，样例项目索引了喜羊羊与灰太狼第 19~28 季，共 600 集，每集 15 分钟。
+本项目使用 Python 开发，基于 PyTorch，前端使用 Gradio 构建，你可以将此项目部署于在线机器学习托管平台，而不需要使用任何自己的服务器资源，如魔搭 ModelScope，Huggingface 等平台。你可以在[此链接](https://modelscope.cn/studios/tuxiaobei/Search_Anime_For_XYY_S19_to_S28)尝试本项目，样例项目索引了喜羊羊与灰太狼第 19~28 季，共 600 集，每集 15 分钟。
 
 你可以训练专属于目标动漫的检索模型，达到最出色的效果，检索模型对裁剪和颜色变换均具有优秀鲁棒性。
 
@@ -254,4 +254,4 @@ python app.py
 
 ## 许可
 
-本项目采用 [AGPL-3.0](https://github.com/tuxiaobei-scu/WhenAnime/blob/master/LICENSE) 许可协议开源，在使用本项目的源代码时请遵守许可协议。
+本项目采用 [AGPL-3.0](./LICENSE) 许可协议开源，在使用本项目的源代码时请遵守许可协议。
