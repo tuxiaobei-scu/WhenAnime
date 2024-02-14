@@ -55,15 +55,15 @@ python pre_dataset.py
 
 **命令行参数**
 
-- `--video_path`: 视频文件所在的目录路径。默认为 'videos'。
-- `--op`: 忽略视频头部长度的百分比。默认为 0。
-- `--ed`: 忽略视频尾部长度的百分比。默认为 0。
-- `--num`: 从每个视频中提取的帧数。默认为 10。
-- `--dataset`: 输出文件夹的路径，用于存储提取的帧。默认为 'dataset'。
-- `--split`: 验证集所占的比例。默认为 0.2。
-- `--quality`: 保存的 JPEG 图片的质量，范围为 0 到 100。默认为 90。
-- `--color_threshold`: 颜色标准差的阈值，用于判断纯色帧。默认为 1。
-- `--target_resolution`: 目标分辨率的长边长度，可选参数。默认为 None。
+- `-video_path`: 视频文件所在的目录路径。默认为 'videos'。
+- `-op`: 忽略视频头部长度的百分比。默认为 0。
+- `-ed`: 忽略视频尾部长度的百分比。默认为 0。
+- `-num`: 从每个视频中提取的帧数。默认为 10。
+- `-dataset`: 输出文件夹的路径，用于存储提取的帧。默认为 'dataset'。
+- `-split`: 验证集所占的比例。默认为 0.2。
+- `-quality`: 保存的 JPEG 图片的质量，范围为 0 到 100。默认为 90。
+- `-color_threshold`: 颜色标准差的阈值，用于判断纯色帧。默认为 1。
+- `-target_resolution`: 目标分辨率的长边长度，可选参数。默认为 None。
 
 #### 获取数据集均值与方差
 
@@ -75,10 +75,10 @@ python get_mean_std.py
 
 **命令行参数**
 
-- `--dataset`: 数据集所在的目录路径。默认为 'dataset'。
-- `--batch_size`: 每批处理的数据量。默认为 64。
-- `--output`: 输出 JSON 文件的路径。默认为 'info.json'。
-- `--max_samples`: 用于计算的最大样本数量。默认为 1000。
+- `-dataset`: 数据集所在的目录路径。默认为 'dataset'。
+- `-batch_size`: 每批处理的数据量。默认为 64。
+- `-output`: 输出 JSON 文件的路径。默认为 'info.json'。
+- `-max_samples`: 用于计算的最大样本数量。默认为 1000。
 
 #### 生成增强的验证集图片
 此脚本用于对验证集图片进行数据增强，并将增强后的图片保存到同一目录下。
@@ -86,11 +86,11 @@ python get_mean_std.py
 python gen_val.py
 ```
 **命令行参数**
-- `--val_path`: 验证集图片所在的目录路径。默认为 'dataset/val'。
-- `--img_size`: 随机裁剪的大小。默认为 224。
-- `--crop_scale`: 随机裁剪的最小比例。默认为 0.25。
-- `--flip`: 随机水平翻转的概率。默认为 0.2。
-- `--color`: 随机颜色亮度调整的最大值。默认为 0.2。
+- `-val_path`: 验证集图片所在的目录路径。默认为 'dataset/val'。
+- `-img_size`: 随机裁剪的大小。默认为 224。
+- `-crop_scale`: 随机裁剪的最小比例。默认为 0.25。
+- `-flip`: 随机水平翻转的概率。默认为 0.2。
+- `-color`: 随机颜色亮度调整的最大值。默认为 0.2。
 
 ### 训练
 
@@ -136,27 +136,27 @@ MultipleNegativesRankingLoss 是一种损失函数，它将每个查询图片与
 
 **命令行参数**
 
-- `--dataset`: 数据集所在的目录路径。默认为 'dataset'。
+- `-dataset`: 数据集所在的目录路径。默认为 'dataset'。
 
-- `--info_path`: 包含数据集均值和标准差的 JSON 文件路径。默认为 'info.json'。
+- `-info_path`: 包含数据集均值和标准差的 JSON 文件路径。默认为 'info.json'。
 
-- `--train_log`: 训练日志文件的路径。默认为 'train_log.csv'。
+- `-train_log`: 训练日志文件的路径。默认为 'train_log.csv'。
 
-- `--pre_train`: 预训练权重文件的路径。默认为 None。
+- `-pre_train`: 预训练权重文件的路径。默认为 None。
 
-- `--model_path`: 保存模型的目录路径。默认为 'models'。
+- `-model_path`: 保存模型的目录路径。默认为 'models'。
 
-- `--train_batch_size`: 训练时的批量大小。默认为 256。
+- `-train_batch_size`: 训练时的批量大小。默认为 256。
 
-- `--val_batch_size`: 验证时的批量大小。默认为 256。
+- `-val_batch_size`: 验证时的批量大小。默认为 256。
 
-- `--lr`: 初始学习率。默认为 0.001。
+- `-lr`: 初始学习率。默认为 0.001。
 
-- `--epochs`: 训练的轮数。默认为 50。
+- `-epochs`: 训练的轮数。默认为 50。
 
-- `--t_max`: 学习率周期长度。默认为 10。
+- `-t_max`: 学习率周期长度。默认为 10。
 
-- `--eta_min`: 学习率的最小值。默认为 0.00005。
+- `-eta_min`: 学习率的最小值。默认为 0.00005。
 
 训练过程中，模型会保存在 `model_path` 指定的目录下，其中最佳模型为 `best.pth`，训练日志会保存在 `train_log` 指定的文件中。如果提供了 `pre_train` 参数，脚本会从该路径加载预练权重。训练日志文件会记录每个 epoch 的损失、准确率以及中位数倒数排名（MRR）。
 
@@ -172,15 +172,15 @@ python gen_conf.py
 ```
 **命令行参数**
 
-- `--video_path`: 视频文件所在的目录路径。默认为 'videos'。
-- `--input`: 输入配置文件路径。默认为 None（如需要增量处理，则需要设置）。
-- `--output_diff`: 输出差异文件路径。默认为 'conf_diff.json'。
-- `--output`: 输出文件路径。默认为 'conf.json'。
-- `--fps`: 图像提取的帧率。默认为 8（若设置了 input，则此项无效，将沿用之前配置文件的 fps）。
-- `--op`: 片头长度（秒）。默认为 0。
-- `--ed`: 片尾长度（秒）。默认为 0。
-- `--full_first_ep`: 是否包含首集的片头/片尾。默认为 True。
-- `--sim_threshold`: 图像提取的相似度阈值。默认为 4。
+- `-video_path`: 视频文件所在的目录路径。默认为 'videos'。
+- `-input`: 输入配置文件路径。默认为 None（如需要增量处理，则需要设置）。
+- `-output_diff`: 输出差异文件路径。默认为 'conf_diff.json'。
+- `-output`: 输出文件路径。默认为 'conf.json'。
+- `-fps`: 图像提取的帧率。默认为 8（若设置了 input，则此项无效，将沿用之前配置文件的 fps）。
+- `-op`: 片头长度（秒）。默认为 0。
+- `-ed`: 片尾长度（秒）。默认为 0。
+- `-full_first_ep`: 是否包含首集的片头/片尾。默认为 True。
+- `-sim_threshold`: 图像提取的相似度阈值。默认为 4。
 
 #### 提取视频帧特征
 此脚本使用预训练模型从视频帧中提取特征，并将这些特征保存到 `.npz` 文件中。
@@ -188,11 +188,11 @@ python gen_conf.py
 python frame_feature.py
 ```
 **命令行参数**
-- `--model_path`: 预训练模型文件的路径。默认为 'model.pth'。
-- `--conf_path`: 配置文件的路径。默认为 'conf_diff.json'。
-- `--info_path`: 包含数据集均值和标准差的 JSON 文件路径。默认为 'info.json'。
-- `--output`: 提取的特征的输出路径。默认为 'features'。
-- `--threads`: 并行处理的工作线程数。默认为 4。
+- `-model_path`: 预训练模型文件的路径。默认为 'model.pth'。
+- `-conf_path`: 配置文件的路径。默认为 'conf_diff.json'。
+- `-info_path`: 包含数据集均值和标准差的 JSON 文件路径。默认为 'info.json'。
+- `-output`: 提取的特征的输出路径。默认为 'features'。
+- `-threads`: 并行处理的工作线程数。默认为 4。
 
 #### 构建特征索引
 此脚本用于构建特征索引，以便高效地搜索和检索视频帧特征。它使用 HNSW (Hierarchical Navigable Small World) 算法，这是一种用于高维空间的数据库搜索算法，特别适用于大规模数据集。
@@ -200,13 +200,13 @@ python frame_feature.py
 python build_index.py
 ```
 **命令行参数**
-- `--features_path`: 特征文件的目录路径。默认为 'features'。
-- `--conf_diff`: 包含新特征配置信息的文件路径。默认为 'conf_diff.json'。
-- `--pre_index`: 之前构建的特征索引文件的路径。默认为 None（若设置则进行增量构建，此时 ef_construction、m 参数无效，dim 参数必须与之前索引一致）。
-- `--dim`: 特征的维度。默认为 512。
-- `--ef_construction`: 平衡索引/构建时间和索引精度的参数。默认为 512。
-- `--m`: 图中的最大出边数。默认为 64（取值 0~100，越大精确度越高，同时耗时和占用内存越大）。
-- `--output`: 输出特征索引文件的路径。默认为 'index.bin'。
+- `-features_path`: 特征文件的目录路径。默认为 'features'。
+- `-conf_diff`: 包含新特征配置信息的文件路径。默认为 'conf_diff.json'。
+- `-pre_index`: 之前构建的特征索引文件的路径。默认为 None（若设置则进行增量构建，此时 ef_construction、m 参数无效，dim 参数必须与之前索引一致）。
+- `-dim`: 特征的维度。默认为 512。
+- `-ef_construction`: 平衡索引/构建时间和索引精度的参数。默认为 512。
+- `-m`: 图中的最大出边数。默认为 64（取值 0~100，越大精确度越高，同时耗时和占用内存越大）。
+- `-output`: 输出特征索引文件的路径。默认为 'index.bin'。
 
 ### 前端应用
 
@@ -224,7 +224,7 @@ python app.py
 - ef: 查询时用来平衡查询时间和查询精度的参数。如果该环境变量未设置，脚本将使用默认值 512。
 - index_path: 构建的特征索引文件的路径。如果该环境变量未设置，脚本将使用默认值 ‘index.bin’。
 - conf_path: 指定包含配置信息的 JSON 文件的路径。如果该环境变量未设置，脚本将使用默认值 ‘conf.json’。
-- info_path: 包含数据集均值和标准差的 JSON 文件的路径。如果该环境变量未设置，脚本将使用默认值 ‘info.json’。。
+- info_path: 包含数据集均值和标准差的 JSON 文件的路径。如果该环境变量未设置，脚本将使用默认值 ‘info.json’。
 - model_path: 指定特征提取模型的路径，该模型将被用于从查询图片帧中提取特征。如果该环境变量未设置，脚本将使用默认值 ‘model.pth’。
 
 ### 部署
