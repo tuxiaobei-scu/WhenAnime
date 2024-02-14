@@ -141,7 +141,7 @@ def evaluate_model(model, test_loader, k_list=[1, 5, 10]):
                 rank = (topk_indices[i] == i).nonzero().item()
                 reciprocal_rank += 1 / (rank + 1)
                 for k in k_list:
-                    if rank <= k:
+                    if rank < k:
                         correct_matches[k] += 1
 
     topk_accuracies = {k: correct_matches[k] / len(val_dataset) for k in k_list}
